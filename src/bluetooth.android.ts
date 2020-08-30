@@ -1545,7 +1545,7 @@ export class Bluetooth extends BluetoothCommon {
                         CLog(CLogTypes.error, methodName, '---- error:', ex);
                         reject(
                             new BluetoothError(ex.message, {
-                                stack: ex.stackTrace,
+                                stack: ex.stack,
                                 arguments: args,
                                 nativeException: ex.nativeException,
                                 method: methodName
