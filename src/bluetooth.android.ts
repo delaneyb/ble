@@ -1541,7 +1541,17 @@ export class Bluetooth extends BluetoothCommon {
                     if (Trace.isEnabled()) {
                         CLog(CLogTypes.info, methodName, '---- Coarse Location Permission not granted on Android device, will request permission.');
                     }
-                    this.requestLocationPermission(onPermissionGranted);
+                    this.requestLocationPermission(onPermissionGranted).catch(ex => {
+                        CLog(CLogTypes.error, methodName, '---- error:', ex);
+                        reject(
+                            new BluetoothError(ex.message, {
+                                stack: ex.stackTrace,
+                                arguments: args,
+                                nativeException: ex.nativeException,
+                                method: methodName
+                            })
+                        );
+                    });
                 } else {
                     onPermissionGranted();
                 }
