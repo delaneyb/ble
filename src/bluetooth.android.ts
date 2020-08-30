@@ -1196,10 +1196,6 @@ export class Bluetooth extends BluetoothCommon {
         return hasPermission;
     }
 
-    public hasLocationPermission() {
-        return Promise.resolve(this.locationPermissionGranted());
-    }
-
     public requestLocationPermission(callback?: () => void): Promise<boolean> {
         return new Promise((resolve, reject) => {
             let permissionCb = (args: AndroidActivityRequestPermissionsEventData) => {
@@ -1231,9 +1227,6 @@ export class Bluetooth extends BluetoothCommon {
         return (andApp.context as android.content.Context).getSystemService(android.content.Context.LOCATION_SERVICE);
     }
     public isGPSEnabled() {
-        if (!this.hasLocationPermission()) {
-            return this.requestLocationPermission().then(() => this.isGPSEnabled());
-        }
         const result = this.getAndroidLocationManager().isProviderEnabled(android.location.LocationManager.GPS_PROVIDER);
         const providers = this.getAndroidLocationManager().getProviders(false);
         if (Trace.isEnabled()) {
