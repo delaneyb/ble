@@ -1208,7 +1208,7 @@ export class Bluetooth extends BluetoothCommon {
                     permissionCb = null;
                     for (let i = 0; i < args.permissions.length; i++) {
                         if (args.grantResults[i] === android.content.pm.PackageManager.PERMISSION_DENIED) {
-                            reject('Permission denied');
+                            reject(new Error('Permission denied'));
                             return;
                         }
                     }
