@@ -78,7 +78,7 @@ export class Bluetooth extends BluetoothCommon {
      * Android only. check if GPS is enabled.
      * @returns {boolean}
      */
-    isGPSEnabled(): Promise<boolean>;
+    isGPSEnabled(): boolean;
 
     /**
      * Android only. Will reject if the user denied turning GPS on.

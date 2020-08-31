@@ -1233,7 +1233,7 @@ export class Bluetooth extends BluetoothCommon {
             CLog(CLogTypes.info, 'isGPSEnabled providers', providers);
             CLog(CLogTypes.info, 'isGPSEnabled: ', result);
         }
-        return Promise.resolve(result);
+        return result;
     }
     public enableGPS(): Promise<void> {
         if (Trace.isEnabled()) {
