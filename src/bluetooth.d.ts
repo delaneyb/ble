@@ -93,7 +93,9 @@ export class Bluetooth extends BluetoothCommon {
     openBluetoothSettings(url?: string);
 
     /**
-     * Required for Android 6+ to be able to scan for peripherals in the background.
+     * Android only. Checks whether the location permissions required to discover Bluetooth devices
+     * have been granted.
+     * @returns {boolean} always true on iOS
      */
     hasLocationPermission(): Promise<boolean>;
 
