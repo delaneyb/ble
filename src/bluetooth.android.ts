@@ -1196,6 +1196,10 @@ export class Bluetooth extends BluetoothCommon {
         return hasPermission;
     }
 
+    public hasLocationPermission() {
+        return Promise.resolve(this.locationPermissionGranted());
+    }
+
     public requestLocationPermission(callback?: () => void): Promise<boolean> {
         return new Promise((resolve, reject) => {
             let permissionCb = (args: AndroidActivityRequestPermissionsEventData) => {

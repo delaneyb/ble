@@ -95,7 +95,7 @@ export class Bluetooth extends BluetoothCommon {
     /**
      * Android only. Checks whether the location permissions required to discover Bluetooth devices
      * have been granted.
-     * @returns {boolean} always true on iOS
+     * @returns {Promise<boolean>} always resolves true on iOS
      */
     hasLocationPermission(): Promise<boolean>;
 
