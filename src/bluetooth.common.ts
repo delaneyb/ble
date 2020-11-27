@@ -120,7 +120,7 @@ export abstract class BluetoothCommon extends Observable {
     public abstract isBluetoothEnabled(): Promise<boolean>;
 
     public isGPSEnabled() {
-        return Promise.resolve(true); // we dont need to check for GPS in the bluetooth iOS module
+        return true; // we dont need to check for GPS in the bluetooth iOS module
     }
     public enableGPS(): Promise<void> {
         return Promise.resolve(); // we dont need to check for GPS in the bluetooth iOS module
